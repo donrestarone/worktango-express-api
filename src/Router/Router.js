@@ -6,5 +6,16 @@ module.exports = function(router) {
       questions
     );
   });
+
+  router.post("/v1/questions", (req, res) => {
+    console.log(req.body.questions.map(q => q.response))
+    res.status(200).send(
+      {
+        status: 'OK',
+        code: 200,
+        questionsLength: req.body.questions.length
+      }
+    );
+  });
 }
 
